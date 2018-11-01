@@ -1,0 +1,15 @@
+{
+  "name": "robinbot",
+  "version": "1.0.0",
+  "description": "robin 's bot ",
+  "main": "/system/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "wechaty": "^0.22.4"
+  }
+}
