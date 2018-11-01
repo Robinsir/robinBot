@@ -7,24 +7,14 @@ async function initRoomWatch () {
     console.log('get current topic...',topic);
     
     const members = await room.memberList()
-    console.log('get members list',members);
+    console.log('get members list',members.length);
     
 
     //leave event
-    room.on('leave', (leaverList, remover) => {
+    room.on('leave', onLeave)
 
-        // log.info('Bot', 'Room EVENT: leave - "%s" leave(remover "%s"), byebye', leaverList.join(','), remover || 'unknown')
-      })
-
-       
      // Event: Topic Change
-    room.on('topic', (topic, oldTopic, changer) => {
-        // log.info('Bot', 'Room EVENT: topic - changed from "%s" to "%s" by member "%s"',
-        //       oldTopic,
-        //       topic,
-        //       changer.name(),
-        //   )
-      })
+    room.on('topic', onTopic)
     
 }
 
@@ -39,7 +29,7 @@ function onLeave(leaverList, remover){
  * handle on topic
  */
 function onTopic(topic, oldTopic, changer){
-    console.log(`topic changed from ${oldTopic} to ${topic} by ${changer.name}`);
+    console.log(`topic changed from ${oldTopic} to ${topic} by ${changer.name()}`);
 }
 module.exports = function(bot){
    bot.on('login',initRoomWatch);
