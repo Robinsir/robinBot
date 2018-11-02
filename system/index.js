@@ -21,10 +21,10 @@ const {
     config,
     log
   }           = require('wechaty')
-  
   const { FileBox }  = require('file-box')
   const qrTerm = require('qrcode-terminal')
   const func = require('./func.js');
+  
   /**
    *
    * 1. Declare your Bot!
